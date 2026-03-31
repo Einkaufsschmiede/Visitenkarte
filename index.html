@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Einkaufsschmiede – Visitenkarte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2f4a;--navy2:#1e3a5f;--orange:#e8720c;--orange2:#f0944a;
+  --opale:#fff4ec;--bg:#e8ecf1;--card:#ffffff;--text:#1a2f4a;
+  --muted:#5a6a7a;--border:rgba(26,47,74,0.11);
+  --shadow:0 8px 48px rgba(26,47,74,0.15),0 2px 8px rgba(26,47,74,0.08);
+}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;}
+.card{background:var(--card);border-radius:22px;box-shadow:var(--shadow);max-width:420px;width:100%;overflow:hidden;animation:rise .55s cubic-bezier(.16,1,.3,1) both;}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.header{background:var(--navy);padding:1.6rem 2rem 2.8rem;position:relative;overflow:hidden;}
+.header-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.header-deco::before{content:'';position:absolute;top:-10px;left:-6px;width:80px;height:18px;background:var(--orange);transform:rotate(-12deg);border-radius:3px;opacity:.55;z-index:1;}
+.header-deco::after{content:'';position:absolute;bottom:0;right:-10px;width:80px;height:60px;background:rgba(255,255,255,.04);clip-path:polygon(20% 100%,20% 40%,45% 40%,45% 100%,50% 100%,50% 15%,75% 15%,75% 100%);}
+.header-logo-wrap{position:relative;z-index:2;display:flex;justify-content:flex-end;}
+.header-logo{display:block;height:90px;width:auto;}
+.avatar-wrap{display:flex;align-items:flex-end;padding:0 1.75rem;margin-top:-46px;margin-bottom:1.2rem;position:relative;z-index:10;}
+.avatar-ring{width:90px;height:90px;border-radius:50%;border:4px solid var(--card);background:var(--navy2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 18px rgba(26,47,74,.22);}
+.avatar-initials{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700;color:#fff;letter-spacing:.04em;}
+.avatar-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.save-btn{margin-left:auto;display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border:none;border-radius:50px;padding:10px 16px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;align-self:flex-end;white-space:nowrap;}
+.save-btn:hover{background:var(--orange2);transform:translateY(-1px)}
+.save-btn svg{width:14px;height:14px;flex-shrink:0}
+.identity{padding:0 1.75rem 1.4rem;}
+.person-name{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:3px;}
+.person-role{font-size:12px;color:var(--orange);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.8rem;}
+.bio{font-size:14px;line-height:1.7;color:var(--muted);border-left:3px solid var(--orange);padding-left:.85rem;font-style:italic;}
+.divider{height:1px;background:var(--border);margin:0 1.75rem;}
+.contacts{padding:.9rem 1.75rem;display:flex;flex-direction:column;gap:2px;}
+.contact-row{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:10px;text-decoration:none;color:var(--text);transition:background .15s;}
+.contact-row:hover{background:rgba(26,47,74,.05)}
+.c-icon{width:34px;height:34px;border-radius:8px;background:rgba(26,47,74,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--navy2);}
+.c-icon svg{width:15px;height:15px}
+.c-label{font-size:11px;color:var(--muted);margin-bottom:1px}
+.c-value{font-size:14px;color:var(--text)}
+.c-badge{font-size:10px;color:var(--orange);font-weight:700;letter-spacing:.04em;background:var(--opale);padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;}
+.socials{padding:.3rem 1.75rem 1.5rem;display:flex;gap:8px;flex-wrap:wrap;}
+.social-btn{display:flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:50px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:border-color .2s,color .2s,background .2s;}
+.social-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--opale)}
+.social-btn svg{width:14px;height:14px;flex-shrink:0}
+.footer{background:var(--navy);padding:1rem 1.75rem;display:flex;align-items:center;justify-content:center;}
+.vcard-btn{display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;border:none;border-radius:50px;padding:15px 40px;font-family:'Open Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;}
+.vcard-btn:hover{background:var(--orange2);transform:translateY(-1px)}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--orange);color:#fff;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:600;opacity:0;transition:all .3s cubic-bezier(.16,1,.3,1);pointer-events:none;white-space:nowrap;z-index:100;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="header-deco"></div>
+    <div class="header-logo-wrap">
+      <img class="header-logo" src="logo.jpeg" alt="Einkaufsschmiede">
+    </div>
+  </div>
+  <div class="avatar-wrap">
+    <div class="avatar-ring" id="avatarRing">
+      <span class="avatar-initials" id="avatarInitials">PK</span>
+    </div>
+    <button class="save-btn" onclick="downloadVCard()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Kontakt speichern
+    </button>
+  </div>
+  <div class="identity">
+    <div class="person-name" id="personName">Peter Kerczynski</div>
+    <div class="person-role" id="personRole">Einkaufsschmied &amp; Geschäftsführer</div>
+    <p class="bio" id="personBio">Ich mache den Einkauf meiner Kunden ergebniswirksamer – von Lieferanten über Verhandlungen bis zu den Prozessen dahinter.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="contacts">
+    <a class="contact-row" id="linkPhone" href="tel:+4915229212226">
+      <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.59a16 16 0 0 0 6.22 6.22l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div><div class="c-label">Telefon</div><div class="c-value" id="displayPhone">+49 152 292 12226</div></div>
+    </a>
+    <a class="contact-row" id="linkEmail" href="/cdn-cgi/l/email-protection#49392c3d2c3b67222c3b2a3330273a2220092c202722283c2f3a3a2a2124202c2d2c672d2c">
+      <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><div class="c-label">E-Mail</div><div class="c-value" id="displayEmail"><span class="__cf_email__" data-cfemail="2050455445520e4b4552435a594e534b496045494e4b415546535343484d494544450e4445">[email&#160;protected]</span></div></div>
+    </a>
+    <a class="contact-row" id="linkWeb" href="#" target="_blank">
+      <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div><div class="c-label">Website</div><div class="c-value">www.einkaufsschmiede.de <span class="c-badge">demnächst</span></div></div>
+    </a>
+    <a class="contact-row" href="https://maps.google.com?q=Chiemgau" target="_blank">
+      <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="c-label">Standort</div><div class="c-value">Chiemgau, Bayern</div></div>
+    </a>
+  </div>
+  <div class="divider"></div>
+  <div class="socials">
+    <a class="social-btn" href="https://www.linkedin.com/in/peter-kerczynski-a11a43135/" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a class="social-btn" id="linkXing" href="#" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.302-.429-.643-.961-.643H3.648v.001z"/></svg>
+      Xing
+    </a>
+  </div>
+  <div class="footer">
+    <button class="vcard-btn" onclick="downloadVCard()">Kontakt speichern</button>
+  </div>
+</div>
+<div class="toast" id="toast">Kontakt gespeichert ✓</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══════════════════════════════════════════════
+   KONFIGURATION – NUR HIER ANPASSEN
+   ═══════════════════════════════════════════════ */
+const CONFIG = {
+  vorname:        "Peter",
+  nachname:       "Kerczynski",
+  firma:          "Die Einkaufsschmiede",
+  rolle:          "Einkaufsschmied & Geschäftsführer",
+  telefon:        "+4915229212226",
+  telefonAnzeige: "+49 152 292 12226",
+  email:          "peter.kerczynski@einkaufsschmiede.de",
+  website:        "#",
+  websiteAnzeige: "www.einkaufsschmiede.de",
+  linkedin:       "https://www.linkedin.com/in/peter-kerczynski-a11a43135/",
+  xing:           "#",
+  ort:            "Chiemgau, Bayern",
+  bio:            "Ich mache den Einkauf meiner Kunden ergebniswirksamer – von Lieferanten über Verhandlungen bis zu den Prozessen dahinter.",
+  foto:           "foto.jpg.jpg"
+};
+/* ═══════════════════════════════════════════════ */
+
+function init() {
+  const ini = (CONFIG.vorname[0]+CONFIG.nachname[0]).toUpperCase();
+  document.getElementById('avatarInitials').textContent = ini;
+  if (CONFIG.foto) {
+    document.getElementById('avatarRing').innerHTML = '<img src="'+CONFIG.foto+'" alt="Profilfoto">';
+  }
+  document.getElementById('personName').textContent   = CONFIG.vorname+' '+CONFIG.nachname;
+  document.getElementById('personRole').textContent   = CONFIG.rolle;
+  document.getElementById('personBio').textContent    = CONFIG.bio;
+  document.getElementById('displayPhone').textContent = CONFIG.telefonAnzeige;
+  document.getElementById('displayEmail').textContent = CONFIG.email;
+  document.getElementById('linkPhone').href  = 'tel:'+CONFIG.telefon;
+  document.getElementById('linkEmail').href  = 'mailto:'+CONFIG.email;
+  document.getElementById('linkXing').href   = CONFIG.xing;
+}
+
+function downloadVCard() {
+  const today = new Date();
+  const datum = today.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const notiz = 'Kennengelernt am '+datum+' | '+CONFIG.rolle+' | '+CONFIG.firma;
+  const vc = [
+    'BEGIN:VCARD','VERSION:3.0',
+    'N:'+CONFIG.nachname+';'+CONFIG.vorname+';;;',
+    'FN:'+CONFIG.vorname+' '+CONFIG.nachname,
+    'ORG:'+CONFIG.firma,
+    'TITLE:'+CONFIG.rolle,
+    'TEL;TYPE=CELL:'+CONFIG.telefon,
+    'EMAIL:'+CONFIG.email,
+    'URL:'+CONFIG.websiteAnzeige,
+    'ADR;TYPE=WORK:;;'+CONFIG.ort+';;;Deutschland',
+    'NOTE:'+notiz,
+    'END:VCARD'
+  ].join('\r\n');
+  const blob = new Blob([vc],{type:'text/vcard;charset=utf-8'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createEl
